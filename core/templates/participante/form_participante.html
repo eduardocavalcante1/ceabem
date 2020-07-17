@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load filtros %}
+
+{% block conteudo %}
+
+    <form method="post">
+        <div class ="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>CPF:</label>
+                    {{ form_participante.cpf|addclass:'form-control' }}
+                </div>  
+            </div>
+            <div class="row">    
+                <div class="col">
+                    <label>Nome Completo:</label>
+                    {{ form_participante.nome|addclass:'form-control'  }}
+                </div>
+                <div class="col">
+                    <label>Nome Reduzido:</label>
+                    {{ form_participante.nomereduzido|addclass:'form-control' }}
+                </div>
+                <div class ="col">
+                    <label>Data Nascimento:</label>
+                    {{ form_participante.data_nascimento|addclass:'form-control' }}
+                </div>
+            </div>
+        </div>        
+        <div class ="form-group">
+            <div class="row">    
+                <div class="col">      
+                    <label>Endereço:</label>
+                    {{ form_participante.endereco|addclass:'form-control' }}
+                </div>
+            </div>
+            <div class="row">  
+                <div class="col">
+                    <label>Bairro:</label>
+                    {{ form_participante.bairro|addclass:'form-control' }}
+                </div>
+                <div class="col">
+                    <label>Complemento:</label>
+                    {{ form_participante.complemento|addclass:'form-control' }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Cidade:</label>
+                    {{ form_participante.cidade|addclass:'form-control' }}
+                </div>
+                <div class="col">
+                    <label>UF:</label>
+                     {{ form_participante.uf|addclass:'form-control' }}
+                </div>
+                <div class="col">
+                   <div class ="form-group">
+                       <label>Cep:</label>
+                       {{ form_participante.cep|addclass:'form-control' }}
+                   </div>
+                </div>
+            </div>  
+        </div>         
+        <div class ="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>Telefone 1:</label>
+                    {{ form_participante.telefone1|addclass:'form-control' }}
+                </div>
+                <div class="col">
+                    <label>Telefone 2</label>
+                    {{ form_participante.telefone2|addclass:'form-control' }}
+                </div>
+                <div class ="col">
+                    <label>Email:</label>
+                    {{ form_participante.email|addclass:'form-control' }}
+                </div>
+            </div>
+        </div>   
+        <div class ="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>Estado Civil:</label>
+                    {{ form_participante.estado_civil|addclass:'form-control' }}
+                </div>
+                <div class ="col">
+                    <label>Gênero</label>
+                    {{ form_participante.genero|addclass:'form-control' }}
+                </div>
+                <div class ="col">
+                    <label>Ativo:</label>
+                    {{ form_participante.ativo|addclass:'form-control' }}
+                </div>
+            </div>
+        </div>        
+        <div class ="form-group">
+             <input type="submit" value="Salvar" class="btn btn-primary"> 
+        </div>
+    </form>
+
+{% endblock conteudo %}
+

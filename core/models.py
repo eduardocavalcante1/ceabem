@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Pessoa(models.Model):
+class Participante(models.Model):
     cpf = models.CharField(max_length=11, null=False, blank=False)
     nome = models.CharField(max_length=60, null=False, blank=False)
     nomereduzido = models.CharField(max_length=20, null=False, blank=False)
@@ -37,11 +37,11 @@ class Vinculo(models.Model):
     cancelado = models.CharField(max_length=1, null=False, blank=False)
 
 
-class Pessoa_Vinculo(models.Model):
+class Participante_Vinculo(models.Model):
     pessoa = models.ForeignKey(
-        'Pessoa', related_name='pessoa_vinculo', on_delete=models.CASCADE)
+        'Participante', related_name='participante_vinculo', on_delete=models.CASCADE)
     vinculo = models.ForeignKey(
-        'Vinculo', related_name='vinculo_pessoa', on_delete=models.CASCADE)
+        'Vinculo', related_name='vinculo_participante', on_delete=models.CASCADE)
     usuario_cadastro = models.IntegerField(null=False, blank=False)
     data_cadastro = models.DateTimeField(null=False, blank=False)
     usuario_alteracao = models.IntegerField(null=False, blank=False)
@@ -58,11 +58,11 @@ class Atividade(models.Model):
     cancelado = models.CharField(max_length=1, null=False, blank=False)
 
 
-class Pessoa_Atividade(models.Model):
+class Participante_Atividade(models.Model):
     pessoa = models.ForeignKey(
-        'Pessoa', related_name='pessoa_atividade', on_delete=models.CASCADE)
+        'Participante', related_name='participante_atividade', on_delete=models.CASCADE)
     atividade = models.ForeignKey(
-        'Atividade', related_name='atividade_pessoa', on_delete=models.CASCADE)
+        'Atividade', related_name='atividade_participante', on_delete=models.CASCADE)
     usuario_cadastro = models.IntegerField(null=False, blank=False)
     data_cadastro = models.DateTimeField(null=False, blank=False)
     usuario_alteracao = models.IntegerField(null=False, blank=False)
