@@ -1,0 +1,59 @@
+Entidades - sisabem
+
+1.pessoa:           (cadastro) Pessoa física que utilizam e trabalham no CEABEM;
+
+2.vinculo:          (cadastro) Vinculo da pessoa com a instituição:
+                    Paciente - Voluntário - Sócio - Estudante - Doador;
+
+3.pessoa_vinculo:   (relacionamento) 1.pessoa com o 2.vinculo;
+
+4.atividade:        (cadastro) Passista- Orador - Pres. de Mesa-Médium de Cabine
+                    Auxiliar-Estudante;
+
+5.pessoa_atividade: (relacionamento) 1.pessoa  + 4.atividade;
+
+6.terapeuta:        (cadastro) Médicos e Terapeutas Espirituais;
+
+7.pessoa_terapeuta  (relacionamento) 1.pessoa + terapeuta; 
+
+8.terapia:          (cadastro) Passe Corrente - Passe Plexo - Desobessessão
+		    - Evangelho no Lar etc;
+
+9.agenda:        (cadastro + relacionamento) Agenda do terapeuta com  dias de 
+		 atendimento,turno de atendimento, periocidade de atendimento
+                 (7 dias /15 dias), quantidade máxima de atendimento no dia,
+                 se está suspenso o agendamento para determinado terapeuta.
+                 Entidade com relacionamento com 7.pessoa_terapeuta;
+
+10.agendamento: (cadastro + relacionamento) Agendamento dos pacientes para os
+                terapeutas, com data e horário de atendimento e se ocorreu 
+                cancelamento prévio da consulta; 
+                Entidade com relacionamento 9.agenda e 1.pessoa;
+
+11.espera:      (cadastro + relacionamento) hora_chegada,hora_atendimento, 
+                hora_saida e se é prioridade. 
+                Entidade com relacionamento com 10.agendamento;
+
+12. consulta:   (relacionamento)  11.espera + 13.tratamento_cabeçalho 
+                + 14.prontuário;  
+
+13.tratamento_cabeçalho:  (cadastro + relacionamento)Cabeçalho do tratamento
+                          imposto ao paciente. 
+                          Observações, data do inicio do tratamento e está 
+                          finalizado;
+
+14.tratamento_terapia: (cadastro + relacionamento) Quantidade da terapia e 
+                       a data atual e data de retorno.
+                       Entidade com relacionamento  8.terapia + 14.tratamento;
+
+15.prontuario:  (cadastro + relacionamento) Histório dos pacientes com todos
+                os tratamentos. Com data de abertura do prontuário e observação.
+                Entidade com relacionamento com 1.pessoa; 
+
+16.procedimento: (cadastro + relacionamento) Realizações dos procedimentos sugeridos
+                 pelo terapeuta espiritual como passes correntes, plexos ou de
+                 desobessessão, o retorno só se dará com a conclusão dos 
+                 procedimentos, com data do procedimento e alguma observação;
+                 Entidade com relacionamento com a entidade 13.tratamento_cabeçalho.     
+  
+

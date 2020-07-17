@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <form method="post" class="form-control-sm">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label>Usuário:</label>
+            {{form_usuario.username}}
+        </div>    
+        <div class="form-group">
+            <label>Senha:</label>
+            {{form_usuario.password1}}
+        </div>    
+        <div class="form-group">
+            <label>Confirme a Senha:</label>
+            {{form_usuario.passwoard2}}
+        </div>    
+        <div class="form-group">
+            <input type="submit" value="Cadastrar" class="btn btn-primary">
+        </div>
+    </form>
+{% endblock conteudo %}
